@@ -5,6 +5,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import userRoute from './route/userRoute.js'
 import cookieParser from "cookie-parser"
+import cartRoute from './route/cartRoute.js'
 
 const app=express()
 dotenv.config()
@@ -18,6 +19,7 @@ app.use(express.json())
 
 app.use('/product',productRoute)
 app.use('/user',userRoute)
+app.use('/cart',cartRoute)
 
 app.listen(3000,()=>{
     console.log('server running ...')

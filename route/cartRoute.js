@@ -1,7 +1,5 @@
-
 import express from "express";
-
-import authMiddleware from "../middleware/authMiddleware.js";
+import { authMiddleware } from "../middleware/authMiddleware.js";
 
 import {
     getCart,
@@ -10,17 +8,14 @@ import {
     decrementQuantity,
     deleteCartItem,
     clearCart,
-} from "../controllers/cartController.js";
+} from "../controller/cartController.js";
 
 const router = express.Router();
 
-// All cart routes require login
 router.use(authMiddleware);
 
 router.get("/", getCart);
 router.post("/add", addToCart);
-
-// Keep /clear before /:productId
 router.delete("/clear", clearCart);
 router.patch("/increment/:productId", incrementQuantity);
 router.patch("/decrement/:productId", decrementQuantity);
