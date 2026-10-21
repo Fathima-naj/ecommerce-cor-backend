@@ -77,11 +77,11 @@ const orderSchema = new mongoose.Schema(
         },
 
         paymentMethod: {
-            type: String,
-            enum: ["COD"],
-            default: "COD",
-            required: true,
-        },
+    type: String,
+    enum: ["COD", "Razorpay"],
+    default: "COD",
+    required: true,
+},
 
         paymentStatus: {
             type: String,

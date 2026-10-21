@@ -5,6 +5,8 @@ import authorizeRole from "../middleware/authorizeRole.js";
 
 import {
     createOrder,
+    createRazorpayOrder,
+    verifyRazorpayPayment,
     getMyOrders,
     getAllOrders,
     updateOrderStatus,
@@ -17,8 +19,9 @@ router.use(authMiddleware);
 
 // Customer routes
 router.post("/create", createOrder);
+router.post("/razorpay/create", createRazorpayOrder);
 router.get("/my-orders", getMyOrders);
-
+router.post("/razorpay/verify", verifyRazorpayPayment);
 // Admin-only routes
 router.get("/", authorizeRole("admin"), getAllOrders);
 
