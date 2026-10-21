@@ -7,6 +7,7 @@ import userRoute from './route/userRoute.js'
 import cookieParser from "cookie-parser"
 import cartRoute from './route/cartRoute.js'
 import wishlistRoute from './route/wishlistRoute.js'
+import orderRoute from './route/orderRoute.js'
 
 const app=express()
 dotenv.config()
@@ -22,6 +23,7 @@ app.use('/product',productRoute)
 app.use('/user',userRoute)
 app.use('/cart',cartRoute)
 app.use('/wishlist',wishlistRoute)
+app.use('/order',orderRoute)
 
 app.listen(3000,()=>{
     console.log('server running ...')
